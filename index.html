@@ -1,0 +1,107 @@
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Couverture FTTH · France métropolitaine</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div class="hero-badge">Analyse territoriale · France métropolitaine</div>
+      <h1>Couverture FTTH et densité de population</h1>
+      <p>Une lecture croisée pour comprendre si les territoires les plus denses sont aussi ceux où la fibre est la mieux déployée.</p>
+    </div>
+    <div class="hero-kpis" id="top-kpis">
+      <div class="hero-kpi">
+        <span class="hero-kpi-label">Couverture moyenne</span>
+        <strong id="hero-coverage">--</strong>
+      </div>
+      <div class="hero-kpi">
+        <span class="hero-kpi-label">Densité moyenne</span>
+        <strong id="hero-density">--</strong>
+      </div>
+      <div class="hero-kpi">
+        <span class="hero-kpi-label">Communes analysées</span>
+        <strong id="hero-count">--</strong>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+  <aside class="sidebar" id="sidebar"></aside>
+  
+  <main class="main-content">
+    <section class="story-card">
+      <h2>Pourquoi comparer ces deux cartes ?</h2>
+      <p>La première carte montre l'intensité du déploiement FTTH, la seconde la pression démographique. Leur lecture croisée permet d'identifier les territoires où l'équipement numérique suit la demande.</p>
+    </section>
+
+    <section class="maps-grid">
+      <article class="map-panel">
+        <div class="map-panel-head">
+          <div class="map-panel-head-row">
+            <div>
+              <div class="map-overline">Lecture 1</div>
+              <h3>Couverture FTTH</h3>
+              <p>Part de locaux raccordables par commune</p>
+            </div>
+            <button class="reset-btn" id="reset-btn-1">⌂ France</button>
+          </div>
+        </div>
+        <div class="search-bar-wrapper">
+          <input type="text" id="search-input-1" placeholder="Rechercher une commune…" autocomplete="off" />
+          <div class="search-results" id="search-results-1"></div>
+        </div>
+        <div class="map-shell">
+          <div id="map1"></div>
+          <div class="legend glass">
+            <div class="legend-title">FTTH (%)</div>
+            <div class="legend-item"><span class="swatch" style="background:#4A148C"></span> ≥ 90</div>
+            <div class="legend-item"><span class="swatch" style="background:#7B1FA2"></span> 75 – 89</div>
+            <div class="legend-item"><span class="swatch" style="background:#9C27B0"></span> 50 – 74</div>
+            <div class="legend-item"><span class="swatch" style="background:#BA68C8"></span> 25 – 49</div>
+            <div class="legend-item"><span class="swatch" style="background:#E1BEE7"></span> &lt; 25</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="map-panel">
+        <div class="map-panel-head">
+          <div class="map-panel-head-row">
+            <div>
+              <div class="map-overline">Lecture 2</div>
+              <h3>Densité de population</h3>
+              <p>Habitants par km² par commune</p>
+            </div>
+            <button class="reset-btn" id="reset-btn-2">⌂ France</button>
+          </div>
+        </div>
+        <div class="search-bar-wrapper">
+          <input type="text" id="search-input-2" placeholder="Rechercher une commune…" autocomplete="off" />
+          <div class="search-results" id="search-results-2"></div>
+        </div>
+        <div class="map-shell">
+          <div id="map2"></div>
+          <div class="legend glass">
+            <div class="legend-title">Densité (hab/km²)</div>
+            <div class="legend-item"><span class="swatch" style="background:#67000d"></span> ≥ 1000</div>
+            <div class="legend-item"><span class="swatch" style="background:#cb181d"></span> 500 – 999</div>
+            <div class="legend-item"><span class="swatch" style="background:#fb6a4a"></span> 200 – 499</div>
+            <div class="legend-item"><span class="swatch" style="background:#fcae91"></span> 50 – 199</div>
+            <div class="legend-item"><span class="swatch" style="background:#fee5d9"></span> &lt; 50</div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
